@@ -1,10 +1,39 @@
 ---
-type Props = {
-    color: string;
-    size: string;
-} & Omit<astroHTML.JSX.SVGAttributes, "fill" | "height" | "width">;
+import { cn } from "../utils/cn";
+import { cva, type VariantProps } from "class-variance-authority";
 
-const { color, size, ...rest } = Astro.props;
+type OmitTypes = "fill" | "width" | "height";
+
+const iconVariants = cva("h-[1em] fill-current", {
+    variants: {
+        color: {
+            primary: "text-primary",
+        },
+        size: {
+            xsmall: "text-[1.5rem]",
+            small: "text-[2.5rem]",
+            medium: "text-[3rem]",
+            large: "text-[4rem]",
+        },
+    },
+    defaultVariants: {
+        color: "primary",
+        size: "medium",
+    },
+});
+
+export type Props = VariantProps<typeof iconVariants> &
+    Omit<astroHTML.JSX.SVGAttributes, OmitTypes>;
+
+const { color, size, class: className, ...rest } = Astro.props;
+
+console.log("color", cn(iconVariants({ color, size, className })));
 ---
 
-<svg height={size} width={size} {...rest}> </svg>
+<svg
+    {...rest}
+    fill="currentColor"
+    class={cn(iconVariants({ color, size, className }))}
+>
+    <slot />
+</svg>;
