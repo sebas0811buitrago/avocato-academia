@@ -2,7 +2,9 @@
 import SvgIcon from "./SvgIcon.astro";
 import type { Props as IconSvgProps } from "./SvgIcon.astro";
 
-const props: Omit<IconSvgProps, "viewBox"> = Astro.props;
+type Props = Omit<IconSvgProps, "viewBox">;
+
+const props = Astro.props;
 ---
 
 <SvgIcon viewBox="0 0 176 80" {...props}>

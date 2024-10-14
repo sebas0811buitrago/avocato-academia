@@ -8,17 +8,19 @@ const iconVariants = cva("h-[1em] fill-current", {
     variants: {
         color: {
             primary: "text-primary",
+            accent : "text-accent",
         },
         size: {
-            xs: "text-[1.5rem]",
-            sm: "text-[2.5rem]",
-            md: "text-[3rem]",
-            lg: "text-[4rem]",
+            xs: "text-[1rem]",
+            sm: "text-[1.5rem]",
+            base: "text-[2rem]",
+            lg: "text-[2.5rem]",
+            xl: "text-[3rem]",
         },
     },
     defaultVariants: {
         color: "primary",
-        size: "md",
+        size: "base",
     },
 });
 
@@ -36,4 +38,4 @@ console.log("color", cn(iconVariants({ color, size, className })));
     class={cn(iconVariants({ color, size, className }))}
 >
     <slot />
-</svg>;
+</svg>

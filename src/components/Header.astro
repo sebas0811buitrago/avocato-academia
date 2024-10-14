@@ -1,21 +1,18 @@
 ---
 import paths from "../constants/paths";
 import AvocatoAcademiaIcon from "../icons/AvocatoAcademiaIcon.astro";
+import DotsMenu from "../icons/DotsMenu.astro";
 ---
 
-<header>
-    <a href={paths.home} aria-label="Go to home page">
-        <AvocatoAcademiaIcon />
-    </a>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<header class="flex items-center justify-between mx-5 my-3">
+  <a href={paths.home} aria-label="Go to home page">
+    <AvocatoAcademiaIcon size="xl" color="accent" />
+  </a>
+
+  <button>
+    <DotsMenu size="base" />
+  </button>
 </header>
 <script>
-    import "./Header.ts";
+  import "./Header.ts";
 </script>

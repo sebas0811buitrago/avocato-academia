@@ -1,14 +1,21 @@
 @tailwind base;
 
-
 @layer base {
   :root {
     --background-color: 0 0% 100%;
-    --primary: 145 48% 61%;
+    --primary: 145 44% 40%;
+    --accent: 145 48% 61%;
+    --neutral-primary: 0, 0%, 27%;
+    --neutral-secondary: 0, 0%, 27%;
   }
 
-  [data-theme='dark'] {
+  [data-theme="dark"] {
     --background-color: 0 0% 7%;
     --primary: 100 100% 100%;
+    --secondary: 145 44% 40%;
   }
+}
+
+body {
+  color: hsl(var(--neutral-primary));
 }
