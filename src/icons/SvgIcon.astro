@@ -1,0 +1,10 @@
+---
+type Props = {
+    color: string;
+    size: string;
+} & Omit<astroHTML.JSX.SVGAttributes, "fill" | "height" | "width">;
+
+const { color, size, ...rest } = Astro.props;
+---
+
+<svg height={size} width={size} {...rest}> </svg>
