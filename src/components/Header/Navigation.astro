@@ -2,21 +2,21 @@
 import FacebookIcon from "@/icons/FacebookIcon.astro"
 import InstagramIcon from "@/icons/InstagramIcon.astro"
 import WhatsappIcon from "@/icons/WhatsappIcon.astro"
-import AvocatoAcademiaIcon from "../icons/AvocatoAcademiaIcon.astro"
-import ButtonNavigation from "./Header/ButtonNavigation.astro"
+import { cn } from "@/utils/cn"
+import ButtonNavigation from "./ButtonNavigation.astro"
+import { hideElementClasses } from "./constants"
+
+const absolutePosition = "absolute right-0 top-full z-10"
 ---
 
-<hr class="my-10 border-primary" />
-
-<footer class="mx-5 my-3 flex flex-col items-center gap-6">
-	<AvocatoAcademiaIcon color="accent" class="h-20" />
-
-	<p class="text-center text-sm">
-		Lorem ipsum dolor sit amet consectetur. Morbi dui placerat amet risus. Lacus mus tristique
-		ultrices iaculis lorem amet amet. Enim aliquam massa arcu volutpat eu aliquam. Etiam commodo
-		feugiat amet auctor eget diam eget.
-	</p>
-
+<nav
+	id="navigation-menu"
+	class={cn(
+		"bg-light-primary  flex w-full flex-col gap-3 transition-opacity duration-300 ease-in-out p-4",
+		hideElementClasses,
+		absolutePosition
+	)}
+>
 	<ul>
 		<li class="">
 			<a href="/">
@@ -61,4 +61,4 @@ import ButtonNavigation from "./Header/ButtonNavigation.astro"
 			<a href="/"> <WhatsappIcon /> </a>
 		</li>
 	</ul>
-</footer>
+</nav>

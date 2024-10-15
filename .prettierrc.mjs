@@ -16,17 +16,11 @@ export default {
 		"prettier-plugin-astro-organize-imports",
 	],
 	overrides: [
-		{
-			files: ["*.json", "*.md", "*.toml", "*.yml"],
-			options: {
-				useTabs: false,
-			},
-		},
-		{
-			files: "*.astro",
-			options: {
-				parser: "astro",
-			},
-		},
-	],
+    {
+      files: "*.astro",
+      options: {
+        "parser": "astro"
+      }
+    }
+  ]
 }

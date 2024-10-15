@@ -1,21 +1,36 @@
 @tailwind base;
+@tailwind utilities;
 
 @layer base {
-  :root {
-    --background-color: 0 0% 100%;
-    --primary: 145 44% 40%;
-    --accent: 145 48% 61%;
-    --neutral-primary: 0, 0%, 27%;
-    --neutral-secondary: 0, 0%, 27%;
-  }
+	:root {
+		--background-color: 0 0% 100%;
+		--primary: 145 44% 40%;
+		--ligh-primary: 145 81% 92%;
+		--dark-primary: 145 18% 34%;
+		--accent: 145 48% 61%;
+		--neutral-primary: 0, 0%, 23%;
+		--neutral-secondary: 0, 0%, 27%;
+		--foreground-color: 0, 0%, 100%;
+	}
 
-  [data-theme="dark"] {
-    --background-color: 0 0% 7%;
-    --primary: 100 100% 100%;
-    --secondary: 145 44% 40%;
-  }
+	[data-theme="dark"] {
+		--background-color: 0 0% 7%;
+		--primary: 100 100% 100%;
+		--secondary: 145 44% 40%;
+	}
 }
 
 body {
-  color: hsl(var(--neutral-primary));
+	color: hsl(var(--neutral-secondary));
+
+	font-family: "Montserrat Variable", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: hsl(var(--neutral-primary));
 }

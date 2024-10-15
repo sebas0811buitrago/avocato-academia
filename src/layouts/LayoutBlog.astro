@@ -1,29 +1,64 @@
 ---
-import "../styles/global.css";
-import Layout from "../layouts/Layout.astro";
+import Tags from "@/components/Tags.astro"
+import TagsContainer from "@/components/TagsContainer.astro"
+import Layout from "@/layouts/Layout.astro"
+import formatDate from "@/utils/formatDate"
+import { Image } from "astro:assets"
 
 interface Frontmatter {
-	title: string;
-	author: string;
-	description: string;
+	title: string
+	author: string
+	description: string
+	tags: string[]
+	pubDate: string
+	thumbnail: {
+		url: string
+		alt: string
+	}
 }
 
 interface Props {
-	title: string;
-	frontmatter: Frontmatter;
+	title: string
+	frontmatter: Frontmatter
 }
 
-const { frontmatter } = Astro.props;
+const { frontmatter } = Astro.props
+
+//get tags
+const tags = frontmatter.tags.map((tag) => tag.toLowerCase())
 ---
 
 <Layout title={frontmatter.title}>
-	<h1>{frontmatter.title}</h1>
+	<article class="p-4 text-center">
+		<header class="flex flex-col gap-7">
+			<h1 class="text-6xl font-bold">{frontmatter.title}</h1>
 
-	<p>Written by {frontmatter.author}</p>
+			<TagsContainer>
+				{
+					tags.map((tag) => (
+						<Tags>
+							<a href={`/tag/${tag}`}>{tag}</a>
+						</Tags>
+					))
+				}
+				<span slot="date">
+					<time datetime={frontmatter.pubDate}>{formatDate(frontmatter.pubDate)}</time>
+				</span>
+			</TagsContainer>
 
-	<slot />
+			<h2 class="mt-4 text-xl font-bold">{frontmatter.description}</h2>
+
+			<!-- <Image src={frontmatter.thumbnail.url} alt={frontmatter.thumbnail.alt} class="self-center" /> -->
+
+			<img src={frontmatter.thumbnail.url} alt={frontmatter.thumbnail.alt} class="self-center" />
+
+			<p>Written by {frontmatter.author}</p>
+		</header>
+
+		<slot />
+	</article>
 </Layout>
 
 <script is:inline define:vars={{ frontmatter }}>
-	console.log("Frontmatter data:", frontmatter);
+	console.log("Frontmatter data:", frontmatter)
 </script>

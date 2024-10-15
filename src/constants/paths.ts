@@ -1,8 +1,11 @@
 const paths = {
-  home: "/",
-  about: "/about",
-  services: "/services",
-  contact: "/contact",
-};
+	home: "/",
+	services: "/servicios",
+	processAndMethodology: "/proceso-y-metodologia",
+	us: "/nosotros",
+	blog: "/blog",
+	post: "/blog/{post}",
+	contact: "/contactanos-ahora",
+}
 
-export default paths;
+export default paths

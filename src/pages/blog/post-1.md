@@ -1,16 +1,14 @@
 ---
-layout: "../..//layouts/LayoutBlog.astro"
-title: "My First Blog Post"
+layout: "../../layouts/LayoutBlog.astro"
+title: "Lorem ipsum dolor sit amet consectetur."
 pubDate: 2022-07-01
-description: "This is the first post of my new Astro blog."
+description: "Lorem ipsum dolor sit amet consectetur. Sagittis molestie erat nullam enim facilisis feugiat lorem. Enim nulla imperdiet diam rhoncus eu. Vitae lorem penatibus arcu turpis tristique risus magnis egestas. Duis viverra neque eros nunc commodo amet sit dolor amet. Id ipsum habitant convallis id in proin massa sem ut."
 author: "Astro Learner"
-image:
-  url: "https://docs.astro.build/assets/rose.webp"
-  alt: "The Astro logo on a dark background with a pink glow."
+thumbnail:
+  url: "./pages/blog/my-first-post/thumbnail-post-1.png"
+  alt: "Image post 1"
 tags: ["astro", "blogging", "learning in public"]
 ---
-
-Published on: 2022-07-01
 
 Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
 
