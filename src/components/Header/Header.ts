@@ -19,15 +19,13 @@ const ANIMATION_DURATION = transformTransitionDurationToMs(
 )
 
 const state = {
-	isMenuOpen: true,
+	isMenuOpen: false,
 	isButtonClosing: false,
 }
 
 const closeMenu = () => {
-	state.isButtonClosing = true
-
 	responsiveMenu.classList.add(opacity0Class)
-
+	state.isButtonClosing = true
 	setTimeout(() => {
 		state.isButtonClosing = false
 		responsiveMenu.classList.add(...hideElementClassesWithoutOpacity.split(" "))
@@ -35,20 +33,20 @@ const closeMenu = () => {
 		hideElementClassesWithoutOpacity.split(" ").forEach((className) => {
 			responsiveMenu?.classList.toggle(className)
 		})
-		state.isMenuOpen = !state.isMenuOpen
+
+		state.isMenuOpen = false
 	}, ANIMATION_DURATION)
 }
 
 const openMenu = () => {
 	responsiveMenu.classList.remove(...hideElementClasses.split(" "))
-
-	state.isMenuOpen = !state.isMenuOpen
 }
 
 menuToggle.addEventListener("click", () => {
 	if (state.isButtonClosing) return
 
-	if (state.isMenuOpen) {
+	if (!state.isMenuOpen) {
+		state.isMenuOpen = true
 		openMenu()
 		return
 	}
@@ -57,12 +55,13 @@ menuToggle.addEventListener("click", () => {
 })
 
 document.addEventListener("click", (event) => {
+	if (!state.isMenuOpen) return
+
 	const target = event.target as Node
 	const isClickInsideMenu = responsiveMenu.contains(target)
 	const isClickOnToggle = menuToggle.contains(target)
 
 	if (!isClickInsideMenu && !isClickOnToggle) {
-		console.log("isClickInsideMenu")
 		closeMenu()
 	}
 })

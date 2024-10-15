@@ -1,6 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro"
-const allPosts = await Astro.glob("@/pages/blog/**/*.md")
+import { getCollection } from "astro:content"
+
+const allPosts = await getCollection("posts")
+
 const pageTitle = "My Astro Learning Blog"
 
 console.log("allPosts", allPosts)
@@ -11,7 +14,7 @@ console.log("allPosts", allPosts)
 		{
 			allPosts.map((post) => (
 				<li>
-					<a href={post.url}>{post.frontmatter.title}</a>
+					<a href={`/posts/${post?.slug}/`}>{post.data.title}</a>
 				</li>
 			))
 		}
