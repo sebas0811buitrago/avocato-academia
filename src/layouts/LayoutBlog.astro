@@ -1,24 +1,12 @@
 ---
+import FormattedDate from "@/components/FormattedDate.astro"
 import Tags from "@/components/Tags.astro"
 import TagsContainer from "@/components/TagsContainer.astro"
 import Layout from "@/layouts/Layout.astro"
-import formatDate from "@/utils/formatDate"
-
-interface Frontmatter {
-	title: string
-	author: string
-	description: string
-	tags: string[]
-	pubDate: string
-	thumbnail: {
-		url: string
-		alt: string
-	}
-}
+import type { CollectionEntry } from "astro:content"
 
 interface Props {
-	title: string
-	frontmatter: Frontmatter
+	frontmatter: CollectionEntry<"posts">["data"]
 }
 
 const { frontmatter } = Astro.props
@@ -41,7 +29,7 @@ const tags = frontmatter.tags.map((tag) => tag.toLowerCase())
 					))
 				}
 				<span slot="date">
-					<time datetime={frontmatter.pubDate}>{formatDate(frontmatter.pubDate)}</time>
+					<FormattedDate date={frontmatter.pubDate} />
 				</span>
 			</TagsContainer>
 
