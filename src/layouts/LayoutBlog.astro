@@ -47,7 +47,7 @@ const tags = post.tags.map((tag) => tag.toLowerCase())
 					alt={post.thumbnail.alt}
 					class="h-96 w-full max-w-7xl self-center rounded-2xl object-cover"
 				/>
-				<div class="flex w-full max-w-4xl justify-start gap-4">
+				<div class="flex w-full max-w-4xl justify-center gap-4">
 					<Image
 						src={author.thumbnail.image}
 						alt={author.thumbnail.alt}
@@ -55,7 +55,7 @@ const tags = post.tags.map((tag) => tag.toLowerCase())
 					/>
 					<div class="mt-4 flex flex-col items-start justify-center gap-2">
 						<span>{author.name}</span>
-						<span class="text-sm text-primary">{author.description}</span>
+						<span class="text-sm font-semibold text-primary/70">{author.description}</span>
 					</div>
 				</div>
 			</header>
