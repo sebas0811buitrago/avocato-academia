@@ -50,6 +50,19 @@
 		@apply h-80 w-full self-center rounded-2xl object-cover;
 	}
 }
+/* 
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background-color: 0 0% 11%;
+		--primary: 145 44% 60%;
+		--light-primary: 145 81% 30%;
+		--dark-primary: 145 18% 70%;
+		--accent: 145 48% 70%;
+		--neutral-primary: 0 0% 80%;
+		--neutral-secondary: 0 0% 70%;
+		--foreground-color: 0 0% 100%;
+	}
+} */
 
 html {
 	scroll-behavior: smooth;
