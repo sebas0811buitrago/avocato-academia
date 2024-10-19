@@ -2,14 +2,14 @@
 title: "Lorem ipsum dolor sit amet consectetur."
 pubDate: 2022-07-01
 description: "Lorem ipsum dolor sit amet consectetur. Sagittis molestie erat nullam enim facilisis feugiat lorem. Enim nulla imperdiet diam rhoncus eu. Vitae lorem penatibus arcu turpis tristique risus magnis egestas. Duis viverra neque eros nunc commodo amet sit dolor amet. Id ipsum habitant convallis id in proin massa sem ut."
-author: "Astro Learner"
+author: "sebastian"
 thumbnail:
-  url: "./pages/blog/my-first-post/thumbnail-post-1.png"
+  image: "./post-1-images/thumbnail.png"
   alt: "Image post 1"
 tags: ["astro", "blogging", "learning in public"]
 ---
 
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
+Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website. lorem ipsum dolor sit amet consectetur. Sagittis molestie erat nullam enim facilisis feugiat lorem. Enim nulla imperdiet diam rhoncus eu. Vitae lorem penatibus arcu turpis tristique risus magnis egestas. Duis viverra neque eros nunc commodo amet sit dolor amet. Id ipsum habitant convallis id in proin massa sem ut. lorem ipsum dolor sit amet consectetur. Sagittis molestie erat nullam enim facilisis feugiat lorem. Enim nulla imperdiet diam rhoncus eu. Vitae lorem penatibus arcu turpis tristique risus magnis egestas. Duis viverra neque eros nunc commodo amet sit dolor amet. Id ipsum habitant convallis id in proin massa sem ut.
 
 ## What I've accomplished
 

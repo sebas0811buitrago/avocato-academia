@@ -9,6 +9,8 @@ export default {
 			"dark-primary": "hsl(var(--dark-primary))",
 			"accent": "hsl(var(--accent))",
 			"foreground-color": "hsl(var(--foreground-color))",
+			"neutral-primary": "hsl(var(--neutral-primary))",
+			"neutral-secondary": "hsl(var(--neutral-secondary))",
 		},
 	},
 

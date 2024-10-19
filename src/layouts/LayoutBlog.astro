@@ -3,49 +3,66 @@ import FormattedDate from "@/components/FormattedDate.astro"
 import Tags from "@/components/Tags.astro"
 import TagsContainer from "@/components/TagsContainer.astro"
 import Layout from "@/layouts/Layout.astro"
+import { Image } from "astro:assets"
 import type { CollectionEntry } from "astro:content"
 
 interface Props {
-	frontmatter: CollectionEntry<"posts">["data"]
+	post: CollectionEntry<"posts">["data"]
+	author: CollectionEntry<"authors">["data"]
 }
 
-const { frontmatter } = Astro.props
+const { post, author } = Astro.props
 
 //get tags
-const tags = frontmatter.tags.map((tag) => tag.toLowerCase())
+const tags = post.tags.map((tag) => tag.toLowerCase())
 ---
 
-<Layout title={frontmatter.title}>
-	<article class="p-4 text-center">
-		<header class="flex flex-col gap-7">
-			<h1 class="text-6xl font-bold">{frontmatter.title}</h1>
+<Layout title={post.title}>
+	<article class="mx-auto flex max-w-7xl flex-col gap-8 p-4">
+		<section class="text-center">
+			<header class="flex flex-col items-center gap-8">
+				<h1 class="max-w-4xl text-6xl font-bold">{post.title}</h1>
 
-			<TagsContainer>
-				{
-					tags.map((tag) => (
-						<Tags>
-							<a href={`/tag/${tag}`}>{tag}</a>
-						</Tags>
-					))
-				}
-				<span slot="date">
-					<FormattedDate date={frontmatter.pubDate} />
-				</span>
-			</TagsContainer>
+				<TagsContainer>
+					{
+						tags.map((tag) => (
+							<Tags>
+								<a href={`/tag/${tag}`}>{tag}</a>
+							</Tags>
+						))
+					}
+					<span slot="date">
+						<FormattedDate date={post.pubDate} />
+					</span>
+				</TagsContainer>
 
-			<h2 class="mt-4 text-xl font-bold">{frontmatter.description}</h2>
+				<h2 class="mt-4 max-w-4xl text-xl font-bold">{post.description}</h2>
 
-			<!-- <Image src={frontmatter.thumbnail.url} alt={frontmatter.thumbnail.alt} class="self-center" /> -->
+				<Image
+					src={post.thumbnail.image}
+					alt={post.thumbnail.alt}
+					class="h-96 w-full max-w-7xl self-center rounded-2xl object-cover"
+				/>
+				<div class="flex w-full max-w-4xl justify-start gap-4">
+					<Image
+						src={author.thumbnail.image}
+						alt={author.thumbnail.alt}
+						class="h-24 w-24 self-center rounded-full object-cover"
+					/>
+					<div class="mt-4 flex flex-col gap-2">
+						<span>{author.name}</span>
+						<span class="text-sm text-primary">{author.description}</span>
+					</div>
+				</div>
+			</header>
+		</section>
 
-			<img src={frontmatter.thumbnail.url} alt={frontmatter.thumbnail.alt} class="self-center" />
-
-			<p>Written by {frontmatter.author}</p>
-		</header>
-
-		<slot />
+		<section class="article w-full max-w-4xl self-center text-justify">
+			<slot />
+		</section>
 	</article>
 </Layout>
 
-<script is:inline define:vars={{ frontmatter }}>
-	console.log("Frontmatter data:", frontmatter)
+<script is:inline define:vars={{ post }}>
+	console.log("post data:", post)
 </script>
