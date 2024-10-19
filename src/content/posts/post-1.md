@@ -6,19 +6,21 @@ author: "sebastian"
 thumbnail:
   image: "./post-1-images/thumbnail.png"
   alt: "Image post 1"
-tags: ["astro", "blogging", "learning in public"]
+tags: ["hass", "injertar", "astro", "blogging", "learning in public"]
 ---
 
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website. lorem ipsum dolor sit amet consectetur. Sagittis molestie erat nullam enim facilisis feugiat lorem. Enim nulla imperdiet diam rhoncus eu. Vitae lorem penatibus arcu turpis tristique risus magnis egestas. Duis viverra neque eros nunc commodo amet sit dolor amet. Id ipsum habitant convallis id in proin massa sem ut. lorem ipsum dolor sit amet consectetur. Sagittis molestie erat nullam enim facilisis feugiat lorem. Enim nulla imperdiet diam rhoncus eu. Vitae lorem penatibus arcu turpis tristique risus magnis egestas. Duis viverra neque eros nunc commodo amet sit dolor amet. Id ipsum habitant convallis id in proin massa sem ut.
+Lorem ipsum dolor sit amet consectetur. Id pellentesque ultricies sapien pellentesque nunc aenean. Duis risus velit neque dolor facilisis eget cursus aliquam ultricies. Adipiscing pulvinar viverra molestie tellus faucibus nulla sit. Condimentum id odio tincidunt leo. Enim est congue hendrerit dictum. Integer bibendum massa ut tempor lectus eget vulputate vel arcu. Urna massa egestas sollicitudin orci mattis habitasse. Bibendum etiam lorem vitae placerat metus sed. Donec.
 
-## What I've accomplished
+![Alt text](./post-1-images/image1.png)
 
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
+Lorem ipsum dolor sit amet consectetur. Id pellentesque ultricies sapien pellentesque nunc aenean. Duis risus velit neque dolor facilisis eget cursus aliquam ultricies. Adipiscing pulvinar viverra molestie tellus faucibus nulla sit. Condimentum id odio tincidunt leo. Enim est congue hendrerit dictum. Integer bibendum massa ut tempor lectus eget vulputate vel arcu. Urna massa egestas sollicitudin orci mattis habitasse. Bibendum etiam lorem vitae placerat metus sed. Donec.
 
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
+## Lorem ipsum dolor sit amet consectetur. Sagittis molestie erat nullam enim facilisis feugiat lorem.
 
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
+Lorem ipsum dolor sit amet consectetur. Id pellentesque ultricies sapien pellentesque nunc aenean. Duis risus velit neque dolor facilisis eget cursus aliquam ultricies. Adipiscing pulvinar viverra molestie tellus faucibus nulla sit. Condimentum id odio tincidunt leo. Enim est congue hendrerit dictum. Integer bibendum massa ut tempor lectus eget vulputate vel arcu. Urna massa egestas sollicitudin orci mattis habitasse. Bibendum etiam lorem vitae placerat metus sed. Donec.
 
-## What's next
+Lorem ipsum dolor sit amet consectetur. Id pellentesque ultricies sapien pellentesque nunc aenean. Duis risus velit neque dolor facilisis eget cursus aliquam ultricies. Adipiscing pulvinar viverra molestie tellus faucibus nulla sit. Condimentum id odio tincidunt leo. Enim est congue hendrerit dictum. Integer bibendum massa ut tempor lectus eget vulputate vel arcu. Urna massa egestas sollicitudin orci mattis habitasse. Bibendum etiam lorem vitae placerat metus sed. Donec.
 
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+![Alt text](./post-1-images/image2.png)
+
+Lorem ipsum dolor sit amet consectetur. Id pellentesque ultricies sapien pellentesque nunc aenean. Duis risus velit neque dolor facilisis eget cursus aliquam ultricies. Adipiscing pulvinar viverra molestie tellus faucibus nulla sit. Condimentum id odio tincidunt leo. Enim est congue hendrerit dictum. Integer bibendum massa ut tempor lectus eget vulputate vel arcu. Urna massa egestas sollicitudin orci mattis habitasse. Bibendum etiam lorem vitae placerat metus sed. Donec.

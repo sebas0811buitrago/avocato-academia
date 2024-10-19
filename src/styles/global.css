@@ -14,13 +14,18 @@
 	}
 
 	[data-theme="dark"] {
-		--background-color: 0 0% 7%;
-		--primary: 100 100% 100%;
-		--secondary: 145 44% 40%;
+		--background-color: 0 0% 11%; /* Darker background */
+		--primary: 145 44% 60%; /* Lighter to maintain visibility */
+		--light-primary: 145 81% 30%; /* Darkened for dark theme contrast */
+		--dark-primary: 145 18% 70%; /* Lighter version for subtle shading */
+		--accent: 145 48% 70%; /* Brighter accent */
+		--neutral-primary: 0 0% 80%; /* Lightened for readability */
+		--neutral-secondary: 0 0% 70%; /* Slightly darker than the primary neutral */
+		--foreground-color: 0 0% 100%; /* Typically stays white for text readability */
 	}
 
 	.article p {
-		@apply mb-4;
+		@apply mb-6;
 	}
 
 	h1,
@@ -38,7 +43,11 @@
 	.article h4,
 	.article h5,
 	.article h6 {
-		@apply mb-4 font-bold;
+		@apply mb-8 font-bold;
+	}
+
+	.article img {
+		@apply h-80 w-full self-center rounded-2xl object-cover;
 	}
 }
 

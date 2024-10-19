@@ -2,7 +2,7 @@
 import FacebookIcon from "@/icons/FacebookIcon.astro"
 import InstagramIcon from "@/icons/InstagramIcon.astro"
 import WhatsappIcon from "@/icons/WhatsappIcon.astro"
-import { cn } from "@/utils/cn"
+import Button from "../Button.astro"
 import ButtonNavigation from "./ButtonNavigation.astro"
 import { hideElementClasses } from "./constants"
 
@@ -11,11 +11,11 @@ const absolutePosition = "absolute right-0 top-full z-10"
 
 <nav
 	id="navigation-menu"
-	class={cn(
-		"bg-light-primary  flex w-full flex-col gap-3 transition-opacity duration-300 ease-in-out p-4",
+	class:list={[
+		"flex w-full flex-col gap-3 bg-light-primary p-4 transition-opacity duration-300 ease-in-out",
 		hideElementClasses,
-		absolutePosition
-	)}
+		absolutePosition,
+	]}
 >
 	<ul>
 		<li class="">
@@ -41,10 +41,10 @@ const absolutePosition = "absolute right-0 top-full z-10"
 
 		<li class="mt-5 flex justify-center">
 			<a href="/">
-				<button
-					class="hover:bg-dark-primary text-foreground-color duration-250 rounded-full bg-accent px-4 py-2 transition ease-in-out"
+				<Button
+					class="duration-250 bg-accent text-foreground-color transition ease-in-out hover:bg-dark-primary"
 				>
-					Contáctanos ahora</button
+					Contáctanos ahora</Button
 				>
 			</a>
 		</li>

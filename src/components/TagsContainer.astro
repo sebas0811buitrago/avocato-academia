@@ -4,7 +4,7 @@ type Props = astroHTML.JSX
 const props = Astro.props
 ---
 
-<span class="flex flex-wrap items-center justify-center gap-10">
-	<span class="flex flex-wrap justify-center gap-4" {...props}><slot /></span>
+<div class="flex flex-wrap items-center justify-center gap-10">
+	<div class="flex flex-wrap justify-center gap-4" {...props}><slot /></div>
 	<slot name="date" />
-</span>
+</div>

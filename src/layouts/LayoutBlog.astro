@@ -1,7 +1,11 @@
 ---
+import Button from "@/components/Button.astro"
 import FormattedDate from "@/components/FormattedDate.astro"
 import Tags from "@/components/Tags.astro"
 import TagsContainer from "@/components/TagsContainer.astro"
+import ArrowRightIcon from "@/icons/ArrowRight.astro"
+import ImageBanner2 from "@/images/banner-blog-2.png"
+import ImageBanner1 from "@/images/banner-blog.png"
 import Layout from "@/layouts/Layout.astro"
 import { Image } from "astro:assets"
 import type { CollectionEntry } from "astro:content"
@@ -18,17 +22,17 @@ const tags = post.tags.map((tag) => tag.toLowerCase())
 ---
 
 <Layout title={post.title}>
-	<article class="mx-auto flex max-w-7xl flex-col gap-8 p-4">
+	<article class="mx-auto flex max-w-7xl flex-col gap-10 p-4">
 		<section class="text-center">
-			<header class="flex flex-col items-center gap-8">
+			<header class="flex flex-col items-center gap-10">
 				<h1 class="max-w-4xl text-6xl font-bold">{post.title}</h1>
 
 				<TagsContainer>
 					{
 						tags.map((tag) => (
-							<Tags>
-								<a href={`/tag/${tag}`}>{tag}</a>
-							</Tags>
+							<a href={`/tag/${tag}`}>
+								<Tags>{tag}</Tags>
+							</a>
 						))
 					}
 					<span slot="date">
@@ -59,6 +63,34 @@ const tags = post.tags.map((tag) => tag.toLowerCase())
 
 		<section class="article w-full max-w-4xl self-center text-justify">
 			<slot />
+		</section>
+
+		<section class="relative h-[40rem] bg-primary">
+			<div class="absolute top-0 flex w-full justify-center">
+				<Image src={ImageBanner2} alt="" />
+			</div>
+
+			<div
+				class="bg-black justify-center0 m-x-auto max-sm: absolute top-5 flex w-full flex-col items-center text-center text-foreground-color"
+			>
+				<h2 class="z-10 mt-6 p-4 text-2xl font-bold text-foreground-color">
+					¿Quieres iniciar tu cultivo <span class="text-accent">y no sabes como?</span>
+				</h2>
+
+				<p class="mb-8 w-3/4">
+					<span class="text-accent">Lorem ipsum dolor sit amet consectetur. </span>Morbi dui
+					placerat amet risus. Lacus mus tristique ultrices iaculis.
+				</p>
+
+				<Button class="border text-foreground-color hover:bg-dark-primary">
+					Ingresa y conoce como
+					<ArrowRightIcon color={"foreGroundColor"} size={"sm"} />
+				</Button>
+			</div>
+
+			<div class="absolute bottom-0 flex w-full justify-center">
+				<Image src={ImageBanner1} alt="" />
+			</div>
 		</section>
 	</article>
 </Layout>

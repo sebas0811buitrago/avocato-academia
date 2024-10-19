@@ -29,11 +29,6 @@ const closeMenu = () => {
 	setTimeout(() => {
 		state.isButtonClosing = false
 		responsiveMenu.classList.add(...hideElementClassesWithoutOpacity.split(" "))
-
-		hideElementClassesWithoutOpacity.split(" ").forEach((className) => {
-			responsiveMenu?.classList.toggle(className)
-		})
-
 		state.isMenuOpen = false
 	}, ANIMATION_DURATION)
 }
