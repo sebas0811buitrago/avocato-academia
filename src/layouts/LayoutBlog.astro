@@ -1,10 +1,13 @@
 ---
 import { BreadCrumb, getBreadcrumbs } from "@/components/BreadCrumb"
 import Button from "@/components/Button.astro"
+import FloattingButton from "@/components/FloattingButton.astro"
 import FormattedDate from "@/components/FormattedDate.astro"
 import Tags from "@/components/Tags.astro"
 import TagsContainer from "@/components/TagsContainer.astro"
 import ArrowRightIcon from "@/icons/ArrowRight.astro"
+import GoToStart from "@/icons/GoToStart.astro"
+import WhatsappIcon from "@/icons/WhatsappIcon.astro"
 import ImageBanner2 from "@/images/banner-blog-2.png"
 import ImageBanner1 from "@/images/banner-blog.png"
 import Layout from "@/layouts/Layout.astro"
@@ -26,7 +29,7 @@ const breadcrumbs = getBreadcrumbs(currentPath)
 ---
 
 <Layout title={post.title}>
-	<article class="mx-auto flex max-w-7xl flex-col gap-10 p-4">
+	<article class="mx-auto flex max-w-7xl flex-col gap-10 p-4" id="article-start">
 		<section class="text-center">
 			<header class="flex flex-col items-center gap-10">
 				<h1 class="max-w-4xl text-6xl font-bold">{post.title}</h1>
@@ -57,7 +60,7 @@ const breadcrumbs = getBreadcrumbs(currentPath)
 					<Image
 						src={author.thumbnail.image}
 						alt={author.thumbnail.alt}
-						class="h-32 w-32 self-center rounded-full object-cover"
+						class="h-28 w-28 self-center rounded-full object-cover"
 					/>
 					<div class="mt-4 flex flex-col items-start justify-center gap-2">
 						<span>{author.name}</span>
@@ -99,4 +102,18 @@ const breadcrumbs = getBreadcrumbs(currentPath)
 			</div>
 		</section>
 	</article>
+
+	<div class="fixed bottom-5 right-5 z-10 flex flex-col items-center gap-2">
+		<FloattingButton
+			component="a"
+			aria-label="Go to whatsapp"
+			class="p-4"
+			href={`${currentPath}#article-start`}
+		>
+			<GoToStart size="sm" color="inherit" />
+		</FloattingButton>
+		<FloattingButton component="a" aria-label="Go to whatsapp" class="p-4" href="/">
+			<WhatsappIcon size="lg" color="inherit" />
+		</FloattingButton>
+	</div>
 </Layout>

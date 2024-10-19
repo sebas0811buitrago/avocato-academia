@@ -12,6 +12,7 @@ const iconVariants = cva("h-[1em] fill-current", {
 			accent: "text-accent",
 			foreGroundColor: "text-foreground-color",
 			neutral: "text-neutral-primary",
+			inherit: "text-inherit",
 		},
 		size: {
 			xs: "text-[1rem]",
@@ -32,6 +33,6 @@ export type Props = VariantProps<typeof iconVariants> & Omit<HTMLAttributes<"svg
 const { color, size, class: className, ...rest } = Astro.props
 ---
 
-<svg {...rest} fill="currentColor" class={cn(iconVariants({ color, size, className }))}>
+<svg {...rest} fill="currentColor " class={cn(iconVariants({ color, size, className }))}>
 	<slot />
 </svg>
