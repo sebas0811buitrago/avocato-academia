@@ -55,7 +55,7 @@ const tags = post.tags.map((tag) => tag.toLowerCase())
 					/>
 					<div class="mt-4 flex flex-col items-start justify-center gap-2">
 						<span>{author.name}</span>
-						<span class="text-sm font-semibold text-primary/70">{author.description}</span>
+						<span class="text-primary">{author.description}</span>
 					</div>
 				</div>
 			</header>
@@ -94,7 +94,3 @@ const tags = post.tags.map((tag) => tag.toLowerCase())
 		</section>
 	</article>
 </Layout>
-
-<script is:inline define:vars={{ post }}>
-	console.log("post data:", post)
-</script>

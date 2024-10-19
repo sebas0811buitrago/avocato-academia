@@ -5,8 +5,6 @@ import { getCollection } from "astro:content"
 const allPosts = await getCollection("posts")
 
 const pageTitle = "My Astro Learning Blog"
-
-console.log("allPosts", allPosts)
 ---
 
 <Layout title={pageTitle}>
