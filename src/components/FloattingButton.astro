@@ -13,7 +13,7 @@ const { class: className, component: Component = "button", ...props } = Astro.pr
 
 <Component
 	class={cn(
-		"rounded-full  px-4 shadow-xl flex bg-foreground-color justify-center items-center  text-primary hover:bg-accent hover:text-foreground-color",
+		"rounded-full  px-4 shadow-xl flex bg-background-color justify-center items-center  text-primary hover:bg-accent hover:text-foreground-color",
 		className
 	)}
 	{...props}
