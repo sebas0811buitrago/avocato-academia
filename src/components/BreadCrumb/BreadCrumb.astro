@@ -1,0 +1,42 @@
+---
+import ArrowRight from "@/icons/ArrowRight.astro"
+import { cn } from "@/utils/cn"
+import type { HTMLAttributes } from "astro/types"
+import type { BreadCrumb } from "./BreadCrumb.ts"
+
+type Props = {
+	breadcrumb: BreadCrumb[]
+} & HTMLAttributes<"nav">
+
+const { breadcrumb, class: className, ...props } = Astro.props
+
+const breadcrumbLength = breadcrumb.length
+
+const gap = "gap-2"
+---
+
+<nav aria-label="breadcrumb" class={cn("flex", className)} {...props}>
+	<ol class:list={["inline-flex items-center", gap]}>
+		{
+			breadcrumb.map((item, index) => {
+				const isLastItem = index >= breadcrumbLength - 1
+				return (
+					<li class:list={["inline-flex items-center", gap]}>
+						{isLastItem ? (
+							<>
+								<span class="text-gray-600 hover:text-gray-800">{item.name}</span>
+							</>
+						) : (
+							<>
+								<a href={item.url} class="text-gray-600 hover:text-gray-800">
+									{item.name}
+								</a>
+								<ArrowRight color="neutral" size="sm" />
+							</>
+						)}
+					</li>
+				)
+			})
+		}
+	</ol>
+</nav>

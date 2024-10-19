@@ -1,4 +1,5 @@
 ---
+import { BreadCrumb, getBreadcrumbs } from "@/components/BreadCrumb"
 import Button from "@/components/Button.astro"
 import FormattedDate from "@/components/FormattedDate.astro"
 import Tags from "@/components/Tags.astro"
@@ -17,8 +18,11 @@ interface Props {
 
 const { post, author } = Astro.props
 
-//get tags
 const tags = post.tags.map((tag) => tag.toLowerCase())
+
+const currentPath = Astro.url.pathname
+
+const breadcrumbs = getBreadcrumbs(currentPath)
 ---
 
 <Layout title={post.title}>
@@ -26,6 +30,8 @@ const tags = post.tags.map((tag) => tag.toLowerCase())
 		<section class="text-center">
 			<header class="flex flex-col items-center gap-10">
 				<h1 class="max-w-4xl text-6xl font-bold">{post.title}</h1>
+
+				<BreadCrumb breadcrumb={breadcrumbs} class="self-start" />
 
 				<TagsContainer>
 					{
@@ -55,7 +61,7 @@ const tags = post.tags.map((tag) => tag.toLowerCase())
 					/>
 					<div class="mt-4 flex flex-col items-start justify-center gap-2">
 						<span>{author.name}</span>
-						<span class="text-primary">{author.description}</span>
+						<span class="text-dark-primary">{author.description}</span>
 					</div>
 				</div>
 			</header>

@@ -1,7 +1,17 @@
 ---
+import { cn } from "@/utils/cn"
 import Button from "./Button.astro"
+
+import type { HTMLAttributes } from "astro/types"
+
+export type Props = HTMLAttributes<"button">
+
+const { class: className, ...props } = Astro.props
 ---
 
-<Button class="shadow-xl transition-colors duration-500 hover:bg-light-primary">
+<Button
+	class={cn("shadow-xl transition-colors duration-500 hover:bg-light-primary", className)}
+	{...props}
+>
 	<slot />
 </Button>
