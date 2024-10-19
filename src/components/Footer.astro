@@ -12,13 +12,15 @@ import ButtonNavigation from "./Header/ButtonNavigation.astro"
 <footer class="mx-auto my-3 flex max-w-7xl flex-col items-center gap-6">
 	<AvocatoAcademiaIcon color="accent" class="h-20" />
 
-	<p class="max-w-4xl text-center text-sm">
+	<p class="max-w-4xl p-4 text-center text-sm">
 		Lorem ipsum dolor sit amet consectetur. Morbi dui placerat amet risus. Lacus mus tristique
 		ultrices iaculis lorem amet amet. Enim aliquam massa arcu volutpat eu aliquam. Etiam commodo
 		feugiat amet auctor eget diam eget.
 	</p>
 
-	<ul>
+	<ul
+		class="flex w-full flex-col items-center lg:my-4 lg:flex-row lg:items-center lg:justify-around lg:gap-6"
+	>
 		<li class="">
 			<a href="/">
 				<ButtonNavigation> Inicio</ButtonNavigation>
@@ -40,7 +42,7 @@ import ButtonNavigation from "./Header/ButtonNavigation.astro"
 			</a>
 		</li>
 
-		<li class="mt-5 flex justify-center">
+		<li class="mt-5 flex justify-center lg:mt-0">
 			<a href="/">
 				<Button
 					class="duration-250 bg-accent text-foreground-color transition ease-in-out hover:bg-dark-primary"
