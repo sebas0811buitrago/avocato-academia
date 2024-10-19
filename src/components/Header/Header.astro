@@ -1,21 +1,23 @@
 ---
-import Navigation from "@/components/Header/Navigation.astro"
+import NavigationDesktop from "@/components/Header/NavigationDesktop.astro"
+import NavigationMobile from "@/components/Header/NavigationMobile.astro"
 import paths from "@/constants/paths"
 import AvocatoAcademiaIcon from "@/icons/AvocatoAcademiaIcon.astro"
 import DotsMenu from "@/icons/DotsMenu.astro"
 ---
 
-<header class="relative">
-	<div class="mx-5 my-3 flex items-center justify-between">
+<header class="fixed z-20 mt-0 w-full bg-foreground-color shadow-md">
+	<div class="mx-5 my-3 flex items-center justify-between gap-4">
 		<a href={paths.home} aria-label="Go to home page">
 			<AvocatoAcademiaIcon size="xl" color="accent" />
 		</a>
 
-		<button id="menu-toggle" aria-label="main menu">
+		<NavigationDesktop class="hidden lg:flex" />
+		<button id="menu-toggle" aria-label="main menu" class="lg:hidden">
 			<DotsMenu size="base" />
 		</button>
 	</div>
-	<Navigation />
+	<NavigationMobile class="lg:hidden" />
 </header>
 <script>
 	import "./Header.ts"

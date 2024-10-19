@@ -2,20 +2,29 @@
 import FacebookIcon from "@/icons/FacebookIcon.astro"
 import InstagramIcon from "@/icons/InstagramIcon.astro"
 import WhatsappIcon from "@/icons/WhatsappIcon.astro"
+import { cn } from "@/utils/cn"
+import type { HTMLAttributes } from "astro/types"
 import Button from "../Button.astro"
 import ButtonNavigation from "./ButtonNavigation.astro"
 import { hideElementClasses } from "./constants"
 
+type Props = HTMLAttributes<"nav">
 const absolutePosition = "absolute right-0 top-full z-10"
+
+const { class: className, ...props } = Astro.props
 ---
 
 <nav
 	id="navigation-menu"
 	class:list={[
-		"flex w-full flex-col gap-3 bg-light-primary p-4 transition-opacity duration-300 ease-in-out",
+		cn(
+			"flex w-full flex-col gap-3 bg-light-primary p-4 transition-opacity duration-300 ease-in-out",
+			className
+		),
 		hideElementClasses,
 		absolutePosition,
 	]}
+	{...props}
 >
 	<ul>
 		<li class="">

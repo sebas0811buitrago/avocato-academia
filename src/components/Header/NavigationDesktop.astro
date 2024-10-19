@@ -1,0 +1,45 @@
+---
+import { cn } from "@/utils/cn"
+import type { HTMLAttributes } from "astro/types"
+import Button from "../Button.astro"
+import ButtonNavigation from "./ButtonNavigation.astro"
+
+type Props = HTMLAttributes<"nav">
+
+const { class: className, ...props } = Astro.props
+---
+
+<nav class={cn("w-full flex-1 flex justify-center", className)} {...props}>
+	<ul class="flex w-full max-w-lg flex-1 justify-between gap-2">
+		<li class="w-full max-w-screen-lg">
+			<a href="/">
+				<ButtonNavigation> Inicio</ButtonNavigation>
+			</a>
+		</li>
+		<li class="w-full max-w-48">
+			<a href="/">
+				<ButtonNavigation> Servicios</ButtonNavigation>
+			</a>
+		</li>
+		<li class="w-full max-w-48">
+			<a href="/">
+				<ButtonNavigation> Nosotros</ButtonNavigation>
+			</a>
+		</li>
+		<li class="w-full max-w-48">
+			<a href="/">
+				<ButtonNavigation> Blog</ButtonNavigation>
+			</a>
+		</li>
+
+		<li>
+			<a href="/">
+				<Button
+					class="duration-250 bg-accent text-foreground-color transition ease-in-out hover:bg-dark-primary"
+				>
+					Contáctanos
+				</Button>
+			</a>
+		</li>
+	</ul>
+</nav>

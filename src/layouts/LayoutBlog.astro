@@ -30,11 +30,11 @@ const breadcrumbs = getBreadcrumbs(currentPath)
 
 <Layout title={post.title}>
 	<article class="mx-auto flex max-w-7xl flex-col gap-10 p-4" id="article-start">
+		<BreadCrumb breadcrumb={breadcrumbs} class="self-start" />
+
 		<section class="text-center">
 			<header class="flex flex-col items-center gap-10">
 				<h1 class="max-w-4xl text-6xl font-bold">{post.title}</h1>
-
-				<BreadCrumb breadcrumb={breadcrumbs} class="self-start" />
 
 				<TagsContainer>
 					{
@@ -56,7 +56,7 @@ const breadcrumbs = getBreadcrumbs(currentPath)
 					alt={post.thumbnail.alt}
 					class="h-96 w-full max-w-7xl self-center rounded-2xl object-cover"
 				/>
-				<div class="flex w-full max-w-4xl justify-center gap-4">
+				<div class="mx-auto flex w-full max-w-4xl justify-center gap-4 lg:justify-start">
 					<Image
 						src={author.thumbnail.image}
 						alt={author.thumbnail.alt}
@@ -74,31 +74,36 @@ const breadcrumbs = getBreadcrumbs(currentPath)
 			<slot />
 		</section>
 
-		<section class="relative h-[40rem] bg-primary">
-			<div class="absolute top-0 flex w-full justify-center">
-				<Image src={ImageBanner2} alt="" />
+		<section class="relative h-[40rem] overflow-hidden bg-primary lg:h-48">
+			<div class="absolute top-0 flex w-full justify-center lg:-top-28">
+				<Image src={ImageBanner2} alt="" class="lg:w-full" />
 			</div>
 
 			<div
-				class="bg-black justify-center0 m-x-auto max-sm: absolute top-5 flex w-full flex-col items-center text-center text-foreground-color"
+				class="bg-black m-x-auto max-sm: absolute top-5 flex w-full flex-col items-center justify-center text-center text-foreground-color lg:top-0 lg:flex-row lg:justify-between lg:p-4"
 			>
-				<h2 class="z-10 mt-6 p-4 text-2xl font-bold text-foreground-color">
-					¿Quieres iniciar tu cultivo <span class="text-accent">y no sabes como?</span>
+				<h2
+					class="z-10 mt-6 p-4 text-2xl font-bold text-foreground-color lg:lg:max-w-md lg:text-3xl"
+				>
+					¿Quieres iniciar tu cultivo <span class="text-light-primary">y no sabes como?</span>
 				</h2>
 
-				<p class="mb-8 w-3/4">
-					<span class="text-accent">Lorem ipsum dolor sit amet consectetur. </span>Morbi dui
-					placerat amet risus. Lacus mus tristique ultrices iaculis.
-				</p>
+				<div class="flex flex-col items-center justify-center lg:max-w-md">
+					<p class="mb-8 w-3/4">
+						<span class="font-bold text-light-primary"
+							>Lorem ipsum dolor sit amet consectetur.
+						</span>Morbi dui placerat amet risus. Lacus mus tristique ultrices iaculis.
+					</p>
 
-				<Button class="border text-foreground-color hover:bg-dark-primary">
-					Ingresa y conoce como
-					<ArrowRightIcon color={"foreGroundColor"} size={"sm"} />
-				</Button>
+					<Button class="border text-foreground-color hover:bg-dark-primary">
+						Ingresa y conoce como
+						<ArrowRightIcon color="foreGroundColor" size="sm" />
+					</Button>
+				</div>
 			</div>
 
-			<div class="absolute bottom-0 flex w-full justify-center">
-				<Image src={ImageBanner1} alt="" />
+			<div class="absolute bottom-0 flex w-full justify-center lg:-bottom-16">
+				<Image src={ImageBanner1} alt="" class="lg:w-96" />
 			</div>
 		</section>
 	</article>
