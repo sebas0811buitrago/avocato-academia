@@ -7,4 +7,4 @@ type Props = Parameters<typeof Image>[0]
 const { class: className, ...props } = Astro.props
 ---
 
-<Image class={cn("h-80 w-full self-center rounded-2xl object-cover", className)} {...props} />
+<Image class={cn("w-full h-full object-top object-cover", className)} {...props} />

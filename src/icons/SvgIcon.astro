@@ -33,6 +33,6 @@ export type Props = VariantProps<typeof iconVariants> & Omit<HTMLAttributes<"svg
 const { color, size, class: className, ...rest } = Astro.props
 ---
 
-<svg {...rest} fill="currentColor " class={cn(iconVariants({ color, size, className }))}>
+<svg {...rest} fill="currentColor " class={cn(iconVariants({ color, size }), className)}>
 	<slot />
 </svg>
