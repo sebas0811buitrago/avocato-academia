@@ -45,7 +45,7 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
 			<Subtitle> Últimas entradas del blog </Subtitle>
 			<section class="w-full">
 				<ul
-					class="grid w-full grid-rows-[repeat(4,minmax(0,230px))] gap-4 lg:grid-cols-2 lg:grid-rows-[repeat(2,minmax(0,230px))]"
+					class="grid w-full grid-rows-[repeat(4,minmax(0,250px))] gap-4 lg:grid-cols-2 lg:grid-rows-[repeat(2,minmax(0,300px))]"
 				>
 					{
 						allPosts.map(
@@ -63,6 +63,7 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
 							) => (
 								<CardBlogPrimary
 									class:list={[index === 0 && "row-span-2"]}
+									isMainCard={index === 0}
 									overlay={index === 0 ? "gradient" : "full"}
 									date={pubDate}
 									tags={tags}
