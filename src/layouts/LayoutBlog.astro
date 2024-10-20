@@ -2,9 +2,12 @@
 import { BreadCrumb, getBreadcrumbs } from "@/components/BreadCrumb"
 import Button from "@/components/Button.astro"
 import FloattingButton from "@/components/FloattingButton.astro"
+import Footer from "@/components/Footer.astro"
 import FormattedDate from "@/components/FormattedDate.astro"
+import { Header } from "@/components/Header"
 import Tags from "@/components/Tags.astro"
 import TagsContainer from "@/components/TagsContainer.astro"
+import Title from "@/components/Typography/Title.astro"
 import ArrowRightIcon from "@/icons/ArrowRight.astro"
 import GoToStart from "@/icons/GoToStart.astro"
 import WhatsappIcon from "@/icons/WhatsappIcon.astro"
@@ -29,96 +32,102 @@ const breadcrumbs = getBreadcrumbs(currentPath)
 ---
 
 <Layout title={post.title}>
-	<article class="mx-auto flex max-w-7xl flex-col gap-10 p-4" id="article-start">
-		<BreadCrumb breadcrumb={breadcrumbs} class="self-start" />
+	<Header slot="header" />
 
-		<section class="text-center">
-			<header class="flex flex-col items-center gap-10">
-				<h1 class="max-w-4xl text-4xl font-bold">{post.title}</h1>
+	<main class="pt-28">
+		<article class="mx-auto flex max-w-7xl flex-col gap-10 p-4" id="article-start">
+			<BreadCrumb breadcrumb={breadcrumbs} class="self-start" />
 
-				<TagsContainer>
-					{
-						tags.map((tag) => (
-							<a href={`/tag/${tag}`}>
-								<Tags>{tag}</Tags>
-							</a>
-						))
-					}
-					<span slot="date">
-						<FormattedDate date={post.pubDate} />
-					</span>
-				</TagsContainer>
+			<section class="text-center">
+				<header class="flex flex-col items-center gap-10">
+					<Title>{post.title}</Title>
 
-				<h2 class="mt-4 max-w-4xl text-xl font-bold">{post.description}</h2>
+					<TagsContainer>
+						{
+							tags.map((tag) => (
+								<a href={`/tag/${tag}`}>
+									<Tags>{tag}</Tags>
+								</a>
+							))
+						}
+						<span slot="more">
+							<FormattedDate date={post.pubDate} />
+						</span>
+					</TagsContainer>
 
-				<Image
-					src={post.thumbnail.image}
-					alt={post.thumbnail.alt}
-					class="h-96 w-full max-w-7xl self-center rounded-2xl object-cover"
-				/>
-				<div class="mx-auto flex w-full max-w-4xl justify-center gap-4 lg:justify-start">
+					<h2 class="mt-4 max-w-4xl text-xl font-bold">{post.description}</h2>
+
 					<Image
-						src={author.thumbnail.image}
-						alt={author.thumbnail.alt}
-						class="h-28 w-28 self-center rounded-full object-cover"
+						src={post.thumbnail.image}
+						alt={post.thumbnail.alt}
+						class="h-96 w-full max-w-7xl self-center rounded-2xl object-cover"
 					/>
-					<div class="mt-4 flex flex-col items-start justify-center gap-2">
-						<span>{author.name}</span>
-						<span class="text-dark-primary">{author.description}</span>
+					<div class="mx-auto flex w-full max-w-4xl justify-center gap-4 lg:justify-start">
+						<Image
+							src={author.thumbnail.image}
+							alt={author.thumbnail.alt}
+							class="h-28 w-28 self-center rounded-full object-cover"
+						/>
+						<div class="mt-4 flex flex-col items-start justify-center gap-2">
+							<span>{author.name}</span>
+							<span class="text-dark-primary">{author.description}</span>
+						</div>
+					</div>
+				</header>
+			</section>
+
+			<section class="article w-full max-w-4xl self-center text-justify">
+				<slot />
+			</section>
+
+			<section class="relative h-[40rem] overflow-hidden bg-primary lg:h-48">
+				<div class="absolute top-0 flex w-full justify-center lg:-top-28">
+					<Image src={ImageBanner2} alt="" class="lg:w-full" />
+				</div>
+
+				<div
+					class="bg-black m-x-auto max-sm: absolute top-5 flex w-full flex-col items-center justify-center text-center text-foreground-color lg:top-0 lg:flex-row lg:justify-between lg:p-4"
+				>
+					<h2
+						class="z-10 mt-6 p-4 text-2xl font-bold text-foreground-color lg:lg:max-w-md lg:text-3xl"
+					>
+						¿Quieres iniciar tu cultivo <span class="text-light-primary">y no sabes como?</span>
+					</h2>
+
+					<div class="flex flex-col items-center justify-center lg:max-w-md">
+						<p class="mb-8 w-3/4">
+							<span class="font-bold text-light-primary"
+								>Lorem ipsum dolor sit amet consectetur.
+							</span>Morbi dui placerat amet risus. Lacus mus tristique ultrices iaculis.
+						</p>
+
+						<Button class="border text-foreground-color hover:bg-dark-primary">
+							Ingresa y conoce como
+							<ArrowRightIcon color="foreGroundColor" size="sm" />
+						</Button>
 					</div>
 				</div>
-			</header>
-		</section>
 
-		<section class="article w-full max-w-4xl self-center text-justify">
-			<slot />
-		</section>
-
-		<section class="relative h-[40rem] overflow-hidden bg-primary lg:h-48">
-			<div class="absolute top-0 flex w-full justify-center lg:-top-28">
-				<Image src={ImageBanner2} alt="" class="lg:w-full" />
-			</div>
-
-			<div
-				class="bg-black m-x-auto max-sm: absolute top-5 flex w-full flex-col items-center justify-center text-center text-foreground-color lg:top-0 lg:flex-row lg:justify-between lg:p-4"
-			>
-				<h2
-					class="z-10 mt-6 p-4 text-2xl font-bold text-foreground-color lg:lg:max-w-md lg:text-3xl"
-				>
-					¿Quieres iniciar tu cultivo <span class="text-light-primary">y no sabes como?</span>
-				</h2>
-
-				<div class="flex flex-col items-center justify-center lg:max-w-md">
-					<p class="mb-8 w-3/4">
-						<span class="font-bold text-light-primary"
-							>Lorem ipsum dolor sit amet consectetur.
-						</span>Morbi dui placerat amet risus. Lacus mus tristique ultrices iaculis.
-					</p>
-
-					<Button class="border text-foreground-color hover:bg-dark-primary">
-						Ingresa y conoce como
-						<ArrowRightIcon color="foreGroundColor" size="sm" />
-					</Button>
+				<div class="absolute bottom-0 flex w-full justify-center lg:-bottom-16">
+					<Image src={ImageBanner1} alt="" class="lg:w-96" />
 				</div>
-			</div>
+			</section>
+		</article>
 
-			<div class="absolute bottom-0 flex w-full justify-center lg:-bottom-16">
-				<Image src={ImageBanner1} alt="" class="lg:w-96" />
-			</div>
-		</section>
-	</article>
+		<div class="fixed bottom-5 right-5 z-10 flex flex-col items-center gap-2">
+			<FloattingButton
+				component="a"
+				aria-label="Go to whatsapp"
+				class="p-4"
+				href={`${currentPath}#article-start`}
+			>
+				<GoToStart size="sm" color="inherit" />
+			</FloattingButton>
+			<FloattingButton component="a" aria-label="Go to whatsapp" class="p-4" href="/">
+				<WhatsappIcon size="lg" color="inherit" />
+			</FloattingButton>
+		</div>
+	</main>
 
-	<div class="fixed bottom-5 right-5 z-10 flex flex-col items-center gap-2">
-		<FloattingButton
-			component="a"
-			aria-label="Go to whatsapp"
-			class="p-4"
-			href={`${currentPath}#article-start`}
-		>
-			<GoToStart size="sm" color="inherit" />
-		</FloattingButton>
-		<FloattingButton component="a" aria-label="Go to whatsapp" class="p-4" href="/">
-			<WhatsappIcon size="lg" color="inherit" />
-		</FloattingButton>
-	</div>
+	<Footer slot="footer" />
 </Layout>

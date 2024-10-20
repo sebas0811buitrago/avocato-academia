@@ -10,7 +10,10 @@ const { class: className, ...props } = Astro.props
 ---
 
 <Button
-	class={cn("shadow-xl transition-colors duration-500 hover:bg-light-primary", className)}
+	class={cn(
+		"shadow-xl transition-colors duration-500 hover:bg-light-primary bg-background-color",
+		className
+	)}
 	{...props}
 >
 	<slot />

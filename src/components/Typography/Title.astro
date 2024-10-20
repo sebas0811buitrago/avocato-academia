@@ -1,0 +1,9 @@
+---
+import type { HTMLAttributes } from "astro/types"
+
+type Props = HTMLAttributes<"header">
+
+const props = Astro.props
+---
+
+<h1 class="max-w-4xl text-4xl font-bold lg:text-5xl" {...props}><slot /></h1>

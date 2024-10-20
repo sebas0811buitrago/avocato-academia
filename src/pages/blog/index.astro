@@ -1,20 +1,68 @@
 ---
+import CardBlogPrimary from "@/components/Blog/CardBlogPrimary.astro"
+import ImageBlogCard from "@/components/Blog/ImageBlogCard.astro"
+import { BreadCrumb, getBreadcrumbs } from "@/components/BreadCrumb"
+import Footer from "@/components/Footer.astro"
+import { Header } from "@/components/Header"
+import Tags from "@/components/Tags.astro"
+import TagsContainer from "@/components/TagsContainer.astro"
+import Subtitle from "@/components/Typography/Subtitle.astro"
+import Title from "@/components/Typography/Title.astro"
 import Layout from "@/layouts/Layout.astro"
 import { getCollection } from "astro:content"
 
 const allPosts = await getCollection("posts")
 
 const pageTitle = "My Astro Learning Blog"
+
+const currentPath = Astro.url.pathname
+
+const breadcrumbs = getBreadcrumbs(currentPath)
+
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
 ---
 
 <Layout title={pageTitle}>
-	<ul>
-		{
-			allPosts.map((post) => (
-				<li>
-					<a href={`/blog/${post?.slug}/`}>{post.data.title}</a>
-				</li>
-			))
-		}
-	</ul>
+	<Header slot="header" class="bg-light-primary shadow-none" />
+	<main>
+		<header class="flex flex-col items-center gap-3 bg-light-primary px-4 pb-10 pt-32">
+			<Title> Nuestro blog </Title>
+
+			<BreadCrumb breadcrumb={breadcrumbs} />
+
+			<TagsContainer>
+				{
+					tags.map((tag) => (
+						<a href={`/tag/${tag}`}>
+							<Tags>{tag}</Tags>
+						</a>
+					))
+				}
+			</TagsContainer>
+		</header>
+
+		<div class="flex flex-col items-center gap-10 pt-14">
+			<section class="grid">
+				<Subtitle> Últimas entradas del blog </Subtitle>
+
+				<ul>
+					{
+						allPosts.map((post) => (
+							<li>
+								<CardBlogPrimary>
+									<ImageBlogCard
+										slot={"image"}
+										src={post.data.thumbnail.image}
+										alt={post.data.thumbnail.alt}
+									/>
+								</CardBlogPrimary>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</div>
+	</main>
+
+	<Footer slot="footer" />
 </Layout>

@@ -4,9 +4,15 @@ import NavigationMobile from "@/components/Header/NavigationMobile.astro"
 import paths from "@/constants/paths"
 import AvocatoAcademiaIcon from "@/icons/AvocatoAcademiaIcon.astro"
 import DotsMenu from "@/icons/DotsMenu.astro"
+import { cn } from "@/utils/cn"
+import type { HTMLAttributes } from "astro/types"
+
+type Props = HTMLAttributes<"header">
+
+const { class: className, ...props } = Astro.props
 ---
 
-<header class="fixed z-20 mt-0 w-full bg-background-color shadow-md">
+<header class={cn("fixed z-20 mt-0 w-full bg-background-color shadow-md", className)} {...props}>
 	<div class="mx-5 my-3 flex items-center justify-between gap-4">
 		<a href={paths.home} aria-label="Go to home page">
 			<AvocatoAcademiaIcon size="xl" color="accent" />

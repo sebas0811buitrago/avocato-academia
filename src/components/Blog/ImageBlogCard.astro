@@ -1,0 +1,10 @@
+---
+import { cn } from "@/utils/cn"
+import Image from "astro/components/Image.astro"
+
+type Props = Parameters<typeof Image>[0]
+
+const { class: className, ...props } = Astro.props
+---
+
+<Image class={cn("h-80 w-full self-center rounded-2xl object-cover", className)} {...props} />
