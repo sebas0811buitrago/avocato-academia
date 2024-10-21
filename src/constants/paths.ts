@@ -3,7 +3,7 @@ const paths = {
 	services: "/servicios",
 	processAndMethodology: "/proceso-y-metodologia",
 	us: "/nosotros",
-	blog: "/blog",
+	blog: "/blog/1",
 	post: "/blog/{post}",
 	contact: "/contactanos-ahora",
 }

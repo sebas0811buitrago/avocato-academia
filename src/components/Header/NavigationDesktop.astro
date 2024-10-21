@@ -1,4 +1,5 @@
 ---
+import paths from "@/constants/paths"
 import { cn } from "@/utils/cn"
 import type { HTMLAttributes } from "astro/types"
 import Button from "../Button.astro"
@@ -27,7 +28,7 @@ const { class: className, ...props } = Astro.props
 			</a>
 		</li>
 		<li class="w-full max-w-48">
-			<a href="/">
+			<a href={paths.blog}>
 				<ButtonNavigation> Blog</ButtonNavigation>
 			</a>
 		</li>

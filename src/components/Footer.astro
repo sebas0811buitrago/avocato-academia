@@ -1,4 +1,5 @@
 ---
+import paths from "@/constants/paths"
 import FacebookIcon from "@/icons/FacebookIcon.astro"
 import InstagramIcon from "@/icons/InstagramIcon.astro"
 import WhatsappIcon from "@/icons/WhatsappIcon.astro"
@@ -37,7 +38,7 @@ import ButtonNavigation from "./Header/ButtonNavigation.astro"
 			</a>
 		</li>
 		<li class="">
-			<a href="/">
+			<a href={paths.blog}>
 				<ButtonNavigation> Blog</ButtonNavigation>
 			</a>
 		</li>
