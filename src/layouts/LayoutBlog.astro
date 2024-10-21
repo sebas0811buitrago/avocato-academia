@@ -29,6 +29,12 @@ const tags = post.tags.map((tag) => tag.toLowerCase())
 const currentPath = Astro.url.pathname
 
 const breadcrumbs = getBreadcrumbs(currentPath)
+
+const breadcrumbsFinal = breadcrumbs.map((link) =>
+	link.name === "Blog" ? { ...link, url: "/blog/1" } : link
+)
+
+console.log("breadcrumbs", breadcrumbs)
 ---
 
 <Layout title={post.title} class="smooth-scroll">
@@ -36,7 +42,7 @@ const breadcrumbs = getBreadcrumbs(currentPath)
 
 	<main class="pt-28">
 		<article class="mx-auto flex max-w-7xl flex-col gap-10 p-4" id="article-start">
-			<BreadCrumb breadcrumb={breadcrumbs} class="self-start" />
+			<BreadCrumb breadcrumb={breadcrumbsFinal} class="self-start" />
 
 			<section class="text-center">
 				<header class="flex flex-col items-center gap-10">
