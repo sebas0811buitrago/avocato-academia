@@ -1,0 +1,35 @@
+---
+import ArrowRight from "@/icons/ArrowRight.astro"
+import { cn } from "@/utils/cn"
+import type { HTMLAttributes } from "astro/types"
+import FormattedDate from "../FormattedDate.astro"
+
+type Props = HTMLAttributes<"a"> & {
+	date: Date
+	title: string
+}
+
+const { class: className, date, title, ...props } = Astro.props
+---
+
+<a
+	class={cn(
+		"flex flex-col gap-4 rounded-2xl overflow-hidden hover:shadow-lg hover:bg-light-primary",
+		className
+	)}
+	{...props}
+>
+	<slot name="image" />
+
+	<div class="flex flex-col justify-around gap-2 p-4">
+		<h3 class="text-xl font-bold lg:text-2xl">
+			{title}
+		</h3>
+
+		<FormattedDate date={date} />
+		<span class="flex text-sm">
+			Leer más ...
+			<ArrowRight size="sm" />
+		</span>
+	</div>
+</a>

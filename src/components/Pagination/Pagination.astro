@@ -1,23 +1,84 @@
 ---
 import ArrowRight from "@/icons/ArrowRight.astro"
+import { cn } from "@/utils/cn"
 import Button from "../Button.astro"
 
 type Props = {
 	totalPages: number
 	currentPage: number
+	getPageUrl?: (page: number) => string
 }
 
-const { totalPages, currentPage } = Astro.props
+const {
+	totalPages,
+	currentPage,
+	getPageUrl = (page) => `/blog/${page}/#mas-articulos`,
+} = Astro.props
 
 const isOnlyOnePage = totalPages === 1
+
+const isLessThanThreePages = totalPages <= 3
+
+const showPrevButton = currentPage > 1 && !isOnlyOnePage
+
+const showNextButton = currentPage < totalPages && !isOnlyOnePage
+
+const getPaginationNumbers = () => {
+	if (isLessThanThreePages) return Array.from({ length: totalPages }, (_, index) => index + 1)
+	const isFirstOrLastPage = currentPage === 1 || currentPage === totalPages
+	if (isFirstOrLastPage) return [1, totalPages]
+
+	return [1, currentPage, totalPages]
+}
+
+const pageNumbers = getPaginationNumbers()
+const showDots = pageNumbers.length >= 2
 ---
 
-<nav class:list={["flex w-full justify-between gap-2", isOnlyOnePage && "hidden"]}>
-	<Button class="bg-accent shadow-lg hover:bg-dark-primary" component="a" href={"/"}>
-		<ArrowRight color="foreGroundColor" class="rotate-180" /></Button
-	>
+<nav class:list={["flex w-full justify-between gap-2", isOnlyOnePage && "invisible"]}>
+	{
+		(
+			<Button
+				class={cn("bg-accent shadow-lg hover:bg-dark-primary", !showPrevButton && "invisible")}
+				component="a"
+				href={getPageUrl(currentPage - 1)}
+			>
+				<ArrowRight color="foreGroundColor" class="rotate-180" />
+			</Button>
+		)
+	}
 
-	<Button class="bg-accent shadow-lg hover:bg-dark-primary" component="a" href={"/"}>
-		<ArrowRight color="foreGroundColor" /></Button
-	>
+	<div class="flex items-center gap-2">
+		{
+			pageNumbers.map((page, index) => {
+				return (
+					<>
+						{showDots && index > 0 && <span>....</span>}
+						<Button
+							component="a"
+							class={cn(
+								"shadow-lg hover:bg-light-primary",
+								currentPage === page && "bg-light-primary"
+							)}
+							href={getPageUrl(page)}
+						>
+							{page}
+						</Button>
+					</>
+				)
+			})
+		}
+	</div>
+
+	{
+		(
+			<Button
+				class={cn("bg-accent shadow-lg hover:bg-dark-primary", !showNextButton && "invisible")}
+				component="a"
+				href={getPageUrl(currentPage + 1)}
+			>
+				<ArrowRight color="foreGroundColor" />
+			</Button>
+		)
+	}
 </nav>

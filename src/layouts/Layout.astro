@@ -3,6 +3,7 @@ import "@fontsource-variable/montserrat"
 
 import { cn } from "@/utils/cn"
 import type { HTMLAttributes } from "astro/types"
+import { ViewTransitions } from "astro:transitions"
 import "../styles/global.css"
 
 type Props = {
@@ -25,6 +26,7 @@ const { class: className, ...props } = Astro.props
 
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
 	<body>
 		<slot name="header" />

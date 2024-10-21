@@ -1,8 +1,10 @@
 ---
 import CardBlogPrimary from "@/components/Blog/CardBlogPrimary.astro"
 import CardBlogSecondary from "@/components/Blog/CardBlogSecondary.astro"
+import CardBlogTertiary from "@/components/Blog/CardBlogTertiary.astro"
 import ImageBlogCard from "@/components/Blog/ImageBlogCard.astro"
 import ImageBlogCardSecondary from "@/components/Blog/ImageBlogCardSecondary.astro"
+import ImageBlogCardTertiary from "@/components/Blog/ImageBlogCardTertiary.astro"
 import { BreadCrumb, getBreadcrumbs } from "@/components/BreadCrumb"
 import Footer from "@/components/Footer.astro"
 import { Header } from "@/components/Header"
@@ -17,20 +19,16 @@ import type { GetStaticPathsOptions, Page } from "astro"
 import { getCollection, type CollectionEntry } from "astro:content"
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-	const PAGE_SIZE = 2
+	const PAGE_SIZE = 8
 
 	const allPosts = getSortedPosts(await getCollection("posts")).slice(5)
 
-	console.log("allPosts", allPosts)
-
-	// Generate pages from our array of astronauts, with 2 to a page
 	return paginate(allPosts, { pageSize: PAGE_SIZE })
 }
 
 interface Props {
 	page: Page<CollectionEntry<"posts">>
 }
-// All paginated data is passed on the "page" prop
 const { page } = Astro.props
 
 const allPosts = getSortedPosts(await getCollection("posts"))
@@ -46,8 +44,6 @@ const currentPath = Astro.url.pathname
 const breadcrumbs = getBreadcrumbs(
 	currentPath.replace(String(page.currentPage), `Page ${page.currentPage}`)
 )
-
-console.log(page.url)
 ---
 
 <Layout title={pageTitle}>
@@ -128,10 +124,23 @@ console.log(page.url)
 				<hr class="flex-1 border-2 border-accent" />
 			</div>
 
-			<ul>
-				<!--List the array of astronaut info-->
-
-				{page.data.map(({ data: { title } }) => <li>{title}</li>)}
+			<ul class="grid w-full gap-4 lg:grid-cols-4 lg:grid-rows-2">
+				{
+					page.data.map(
+						({
+							data: {
+								title,
+								pubDate,
+								thumbnail: { image, alt },
+							},
+							slug,
+						}) => (
+							<CardBlogTertiary date={pubDate} title={title} href={`/blog/${slug}/`}>
+								<ImageBlogCardTertiary slot={"image"} src={image} alt={alt} />
+							</CardBlogTertiary>
+						)
+					)
+				}
 			</ul>
 
 			<hr class="border-1 w-full flex-1 border-accent" />
