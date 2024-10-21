@@ -6,6 +6,7 @@ import ImageBlogCardSecondary from "@/components/Blog/ImageBlogCardSecondary.ast
 import { BreadCrumb, getBreadcrumbs } from "@/components/BreadCrumb"
 import Footer from "@/components/Footer.astro"
 import { Header } from "@/components/Header"
+import { Pagination } from "@/components/Pagination"
 import Tags from "@/components/Tags.astro"
 import TagsContainer from "@/components/TagsContainer.astro"
 import Subtitle from "@/components/Typography/Subtitle.astro"
@@ -126,17 +127,18 @@ console.log("breadcrumbs", breadcrumbs)
 				<Subtitle>Más artículos</Subtitle>
 				<hr class="flex-1 border-2 border-accent" />
 			</div>
+
+			<ul>
+				<!--List the array of astronaut info-->
+
+				{page.data.map(({ data: { title } }) => <li>{title}</li>)}
+			</ul>
+
+			<hr class="border-1 w-full flex-1 border-accent" />
+
+			<Pagination />
 		</div>
 	</main>
-
-	<h1>Page {page.currentPage}</h1>
-
-	<ul>
-		<!--List the array of astronaut info-->
-
-		hola
-		{page.data.map(({ data: { title } }) => <li>{title}</li>)}
-	</ul>
 
 	<Footer slot="footer" />
 </Layout>

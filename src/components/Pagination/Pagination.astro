@@ -1,0 +1,21 @@
+---
+import ArrowRight from "@/icons/ArrowRight.astro"
+import Button from "../Button.astro"
+
+type Props = {
+	totalPages: number
+	currentPage: number
+}
+
+const { pages, currentPage } = Astro.props
+---
+
+<nav class="flex w-full justify-between gap-2">
+	<Button class="bg-accent shadow-lg hover:bg-dark-primary" component="a" href={"/"}>
+		<ArrowRight color="foreGroundColor" class="rotate-180" /></Button
+	>
+
+	<Button class="bg-accent shadow-lg hover:bg-dark-primary" component="a" href={"/"}>
+		<ArrowRight color="foreGroundColor" /></Button
+	>
+</nav>
