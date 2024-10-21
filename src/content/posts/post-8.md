@@ -1,6 +1,6 @@
 ---
-title: "post-2"
-pubDate: 2022-07-02
+title: "post 8"
+pubDate: 2022-07-08
 description: "Lorem ipsum dolor sit amet consectetur. Sagittis molestie erat nullam enim facilisis feugiat lorem. Enim nulla imperdiet diam rhoncus eu. Vitae lorem penatibus arcu turpis tristique risus magnis egestas. Duis viverra neque eros nunc commodo amet sit dolor amet. Id ipsum habitant convallis id in proin massa sem ut."
 author: "sebastian"
 thumbnail:

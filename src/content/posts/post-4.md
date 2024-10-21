@@ -1,10 +1,10 @@
 ---
-title: "post-2"
-pubDate: 2022-07-02
+title: "post-4"
+pubDate: 2022-07-04
 description: "Lorem ipsum dolor sit amet consectetur. Sagittis molestie erat nullam enim facilisis feugiat lorem. Enim nulla imperdiet diam rhoncus eu. Vitae lorem penatibus arcu turpis tristique risus magnis egestas. Duis viverra neque eros nunc commodo amet sit dolor amet. Id ipsum habitant convallis id in proin massa sem ut."
 author: "sebastian"
 thumbnail:
-  image: "./post-1-images/thumbnail.png"
+  image: "./post-3-images/thumbnail.png"
   alt: "Image post 1"
 tags: ["hass", "injertar", "astro", "blogging", "learning in public"]
 ---

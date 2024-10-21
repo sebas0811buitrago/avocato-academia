@@ -1,17 +1,21 @@
 ---
 import "@fontsource-variable/montserrat"
 
+import { cn } from "@/utils/cn"
+import type { HTMLAttributes } from "astro/types"
 import "../styles/global.css"
 
-interface Props {
+type Props = {
 	title: string
-}
+} & HTMLAttributes<"html">
 
 const { title } = Astro.props
+
+const { class: className, ...props } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en" class="bg-background-color">
+<html lang="en" class={cn("bg-background-color", className)} {...props}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
