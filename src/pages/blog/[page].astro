@@ -28,7 +28,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 }
 
 interface Props {
-	page: Page<CollectionEntry<"projects">>
+	page: Page<CollectionEntry<"posts">>
 }
 // All paginated data is passed on the "page" prop
 const { page } = Astro.props
@@ -47,7 +47,7 @@ const breadcrumbs = getBreadcrumbs(
 	currentPath.replace(String(page.currentPage), `Page ${page.currentPage}`)
 )
 
-console.log("breadcrumbs", breadcrumbs)
+console.log(page.url)
 ---
 
 <Layout title={pageTitle}>
@@ -136,7 +136,7 @@ console.log("breadcrumbs", breadcrumbs)
 
 			<hr class="border-1 w-full flex-1 border-accent" />
 
-			<Pagination />
+			<Pagination totalPages={page.lastPage} currentPage={page.currentPage} />
 		</div>
 	</main>
 

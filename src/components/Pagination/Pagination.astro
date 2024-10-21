@@ -7,10 +7,12 @@ type Props = {
 	currentPage: number
 }
 
-const { pages, currentPage } = Astro.props
+const { totalPages, currentPage } = Astro.props
+
+const isOnlyOnePage = totalPages === 1
 ---
 
-<nav class="flex w-full justify-between gap-2">
+<nav class:list={["flex w-full justify-between gap-2", isOnlyOnePage && "hidden"]}>
 	<Button class="bg-accent shadow-lg hover:bg-dark-primary" component="a" href={"/"}>
 		<ArrowRight color="foreGroundColor" class="rotate-180" /></Button
 	>
